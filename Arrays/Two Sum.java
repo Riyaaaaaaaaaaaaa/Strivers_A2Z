@@ -1,4 +1,5 @@
 //to check the sum is in the array or not(for sorted arrays)
+//if not sorted use Arrays.sort(num)
 class Solution {
     public boolean twoSum(int[] nums, int target) {
         int left = 0;
