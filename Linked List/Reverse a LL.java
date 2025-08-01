@@ -1,3 +1,4 @@
+//Iterative Approach
 class Solution {
     public ListNode reverseList(ListNode head) {
         ListNode curr = head;
@@ -10,5 +11,20 @@ class Solution {
             curr = nextNode;
         }
         return prev;
+    }
+}
+
+
+//Recursive Approach
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null) return head;
+
+        ListNode newHead = reverseList(head.next);
+
+        head.next.next = head;
+        head.next = null;
+
+        return newHead;
     }
 }
