@@ -1,3 +1,4 @@
+//Recursive
 class Solution {
     public int maxDepth(TreeNode root) {
         //your code goes here
@@ -5,5 +6,32 @@ class Solution {
         int left_height = maxDepth(root.left);
         int right_height = maxDepth(root.right);
         return 1 + Math.max(left_height, right_height);
+    }
+}
+
+
+
+//Iterative
+class Solution {
+    public int maxDepth(TreeNode root) {
+        //your code goes here
+        if (root == null) return 0;
+
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        int depth = 0;
+
+        while(!q.isEmpty()) {
+            int size = q.size();
+
+            for(int i =  0 ; i < size ; i++) {
+                TreeNode node = q.poll();
+
+                if(node.left != null) q.offer(node.left);
+                if(node.right != null) q.offer(node.right);
+            }
+            depth++;
+        }
+        return depth;
     }
 }
