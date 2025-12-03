@@ -23,9 +23,9 @@ class Solution {
                 st.push(curr);
                 curr = curr.left;
             } else {
-                curr = st.peek();
-                if(curr.right != null && curr.right != lastVisited) {
-                    curr = curr.right;
+                TreeNode peek = st.peek();
+                if(peek.right != null && peek.right != lastVisited) {
+                    curr = peek.right;
                 } else {
                     curr = st.pop();
                     result.add(curr.data);
